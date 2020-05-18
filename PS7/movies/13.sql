@@ -1,0 +1,1 @@
+select distinct(people.name) from ((stars inner join people on stars.person_id = people.id) inner join movies on stars.movie_id = movies.id) where movies.id in (select movies.id from ((stars inner join people on stars.person_id = people.id) inner join movies on stars.movie_id = movies.id) where people.name = 'Kevin Bacon' and people.birth = 1958) and people.name != 'Kevin Bacon';
